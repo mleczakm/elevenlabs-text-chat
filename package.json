@@ -1,0 +1,44 @@
+{
+  "name": "@mleczakm/elevenlabs-text-chat",
+  "version": "0.1.1",
+  "description": "Lightweight, text-only browser client for ElevenLabs Conversational AI.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mleczakm/elevenlabs-text-chat.git"
+  },
+  "homepage": "https://github.com/mleczakm/elevenlabs-text-chat#readme",
+  "bugs": { "url": "https://github.com/mleczakm/elevenlabs-text-chat/issues" },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "types": "./index.d.ts",
+  "scripts": {
+    "build": "node ./scripts/build.mjs",
+    "pretest": "npm run build",
+    "test": "node --test",
+    "lint": "eslint src test scripts eslint.config.js",
+    "prepack": "npm run build",
+    "prepublishOnly": "npm run lint && npm test && npm run build"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist/index.js",
+    "index.d.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.11.0"
+  }
+}
