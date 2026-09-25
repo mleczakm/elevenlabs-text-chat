@@ -54,3 +54,9 @@ npm pack --dry-run
 ```
 
 The build copies the browser module from `src/` to `dist/`. CI runs linting and tests, then builds and packs the npm artifact.
+
+## Release
+
+The package source and release workflow live in this repository. To release, update `version` in `package.json`, commit and push, create a matching Git tag such as `v0.1.2`, then publish a GitHub release for that tag. The `Publish to npm` workflow reruns lint and tests, checks that the tag matches the package version, and publishes the built package with provenance using npm trusted publishing.
+
+Configure this repository as the package's trusted publisher in npm package settings (`mleczakm` / `elevenlabs-text-chat` / `.github/workflows/publish.yml`) before the first automated release. No long-lived npm publish token is needed.
